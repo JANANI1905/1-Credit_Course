@@ -48,13 +48,15 @@
   margin-bottom: 26px;
   position: relative;
   z-index: 1;
+  opacity: 0;
+  animation: fadeInUp 0.9s ease forwards;
 }
 
-.subtitle { margin: 0 0 4px; color: #5e6f89; font-weight: 600; font-size: 15px; }
+.subtitle { margin: 0 0 4px; color: #5e6f89; font-weight: 600; font-size: 15px; opacity: 0; animation: fadeIn 0.8s ease 0.28s forwards; }
 
-.top-bar h1 { margin: 0; font-size: 46px; letter-spacing: -0.34px; line-height: 1.1; }
+.top-bar h1 { margin: 0; font-size: 46px; letter-spacing: -0.34px; line-height: 1.1; opacity: 0; transform: translateY(14px); animation: fadeInUp 0.8s ease 0.2s forwards; }
 
-.tagline { margin: 10px 0 14px; color: #4d5e7a; font-weight: 500; }
+.tagline { margin: 10px 0 14px; color: #4d5e7a; font-weight: 500; opacity: 0; transform: translateY(12px); animation: fadeInUp 0.8s ease 0.3s forwards; }
 
 .contact { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
 
@@ -82,11 +84,13 @@
 
 .cards-container { display: grid; grid-template-columns: repeat(3, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; position: relative; z-index: 1; }
 
-.card { padding: 18px 16px; border-radius: 14px; border: 1px solid #dce3f4; background: #f9fbff; box-shadow: rgba(18, 40, 78, 0.06) 0 8px 20px -10px; transform: translateY(15px); opacity: 0; animation: cardEntrance 0.8s ease forwards; }
+.card { padding: 18px 16px; border-radius: 14px; border: 1px solid #dce3f4; background: #f9fbff; box-shadow: rgba(18, 40, 78, 0.06) 0 8px 20px -10px; transform: perspective(650px) translateY(20px) rotateX(2deg); opacity: 0; animation: cardEntrance 0.9s ease forwards; }
 
-.animate-card:nth-child(1) { animation-delay: 0.1s; }
-.animate-card:nth-child(2) { animation-delay: 0.22s; }
-.animate-card:nth-child(3) { animation-delay: 0.34s; }
+.animate-card:nth-child(1) { animation-delay: 0.12s; }
+.animate-card:nth-child(2) { animation-delay: 0.26s; }
+.animate-card:nth-child(3) { animation-delay: 0.4s; }
+
+.card:hover { transform: perspective(650px) translateY(-2px) rotateX(1deg) scale(1.01); box-shadow: rgba(18, 40, 78, 0.18) 0 14px 28px -12px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
 
 .card h3 { margin: 0 0 10px; color: #203461; }
 
@@ -135,6 +139,16 @@
 
 @keyframes cardEntrance {
   from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
