@@ -1,44 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --bg: #eaf0f8;
-  --text: #1f2d44;
-  --text-alt: #3c4f6b;
-  --border: #d7e3f0;
-  --accent: #2b5ef7;
-  --shadow: rgba(9, 30, 66, 0.08) 0 12px 24px;
-  font-family: Inter, 'Segoe UI', Roboto, sans-serif;
-  font-size: 18px;
-  line-height: 1.65;
+  --bg: #0a0f1e;
+  --surface: rgba(10, 15, 30, 0.72);
+  --surface-soft: rgba(16, 22, 45, 0.55);
+  --text: #cfd7f0;
+  --text-muted: #92a0be;
+  --accent: #00f5ff;
+  --accent-2: #a855f7;
+  --panel: rgba(28, 35, 67, 0.72);
+  --border: rgba(0, 245, 255, 0.32);
+  --shadow: 0 24px 48px rgba(0, 0, 0, 0.42);
+  --radius: 18px;
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #f3f8ff, #eaf0f8 55%, #f8fbff 100%);
+  background: radial-gradient(circle at 10% 10%, rgba(0, 245, 255, 0.12), transparent 32%),
+              radial-gradient(circle at 80% 15%, rgba(168, 85, 247, 0.09), transparent 28%),
+              linear-gradient(130deg, #080c1a, #060814 35%, #090e19 100%);
   color: var(--text);
+  font-family: var(--font-body);
+  min-height: 100vh;
 }
 
 #root {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
 }
 
-h1,
-h2,
-p,
-ul,
-li {
-  margin: 0;
+.glass {
+  background: var(--surface);
+  border: 1px solid rgba(0, 245, 255, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius);
 }
 
-ul {
-  padding-left: 20px;
+.fade-up { animation: fadeUp 0.85s ease forwards; opacity: 0; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-h1,
-h2 {
-  color: #14213d;
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 16px rgba(0, 245, 255, 0.8); }
+  50% { box-shadow: 0 0 22px rgba(168, 85, 247, 0.8); }
+}
+
+@keyframes typewriter {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+.scrollbar::-webkit-scrollbar { width: 8px; }
+.scrollbar::-webkit-scrollbar-thumb { background: rgba(0, 245, 255, 0.45); border-radius: 999px; }
+
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
 }
 
