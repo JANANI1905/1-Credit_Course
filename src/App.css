@@ -24,6 +24,22 @@ body {
   color: var(--text);
 }
 
+main.container,
+.glass-panel,
+.section-title,
+.cta-btn,
+.timeline-item,
+.skill-pill,
+.icon-btn {
+  position: relative;
+  z-index: 10;
+}
+
+header, footer {
+  position: relative;
+  z-index: 20;
+}
+
 main.container { z-index: 1; position: relative; }
 
 .section-title {
