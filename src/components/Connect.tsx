@@ -11,27 +11,29 @@ const profiles = [
 
 export default function Connect() {
   return (
-    <section id="connect" className="animate-in">
-      <h2 className="section-title">Digital Profiles / Connect</h2>
-      <p className="text-cyan-200 mb-4">Connect with me for opportunities in AI, machine learning, cloud, and automation.</p>
-      <div className="grid gap-3 grid-cols-2 md:grid-cols-3">
-        {profiles.map((profile, idx) => (
-          <motion.a
-            key={profile.href}
-            href={profile.href}
-            target="_blank"
-            rel="noreferrer"
-            className="icon-btn"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.98 }}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.06 * idx, duration: 0.25 }}
-          >
-            {profile.name}
-          </motion.a>
-        ))}
+    <section id="connect" className="section">
+      <div className="section-inner">
+        <p className="section-title">Connect</p>
+        <p className="text-cyan-200 mb-4">Reach out for internships, AI projects, or collaboration.</p>
+        <div className="grid gap-3 grid-cols-2 md:grid-cols-3">
+          {profiles.map((profile) => (
+            <motion.a
+              key={profile.href}
+              href={profile.href}
+              target="_blank"
+              rel="noreferrer"
+              className="skill-pill"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              style={{ justifyContent: 'center' }}
+            >
+              {profile.name}
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   )

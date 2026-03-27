@@ -10,9 +10,9 @@ import './App.css'
 
 function App() {
   return (
-    <div className="text-text bg-[var(--bg)] min-h-screen overflow-x-hidden">
+    <div className="bg-[#0a0f1e] text-[#d7e1ff] min-h-screen">
       <Navbar />
-      <main className="container mx-auto px-4 md:px-10 pt-20 pb-16 space-y-14">
+      <main className="container mx-auto px-6 md:px-8">
         <Hero />
         <About />
         <Education />
